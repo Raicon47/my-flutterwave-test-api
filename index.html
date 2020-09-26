@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Flutterwave API test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    article {
+        transition: all ease 200ms;
+    }
+    article:hover {
+        transform: translateY(-20px);
+    }
+    </style>
+<body>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=282045356268823&autoLogAppEvents=1" nonce="8SOiQslU"></script>
+    
+    <h2 class="font-weight-bold mb-5 mt-2 ml-5">Shopping Cart</h2>
+  
+     <div class="container mt-3 mb-5">
+         <h4 class="font-weight-bold text-warning text-center mb-5"><i>50% Discount on all product</i></h4>
+         <div class="row text-center">
+ 
+             <div class="col-lg-3 mt-2 col-md-6 col-sm-12">
+                 <article class="bg-light p-5 shadow rounded">
+                     <h5 class="font-weight-bold">Shawarma</h5>
+                     <img src="img/one.jpg" class="img-fluid" alt="">
+         <button type="button" class="btn btn-success mt-3" onclick="makePayment()"> Pay Now </button> 
+                 </article>
+             </div>
+ 
+             <div class="col-lg-3 mt-2 col-md-6 col-sm-12">
+                 <article class="bg-light p-5 shadow rounded">
+                     <h5 class="font-weight-bold">Chips & Chops</h5>
+                     <img src="img/two.jpg" class="img-fluid" alt="">
+         <button type="button" class="btn btn-success mt-3" onclick="makePayment()"> Pay Now </button> 
+                 </article>
+             </div>
+ 
+             <div class="col-lg-3 mt-2 col-md-6 col-sm-12">
+                 <article class="bg-light p-5 shadow rounded">
+                     <h5 class="font-weight-bold">Burger</h5>
+                     <img src="img/three.jpg" class="img-fluid" alt="">
+         <button type="button" class="btn btn-success mt-3" onclick="makePayment()"> Pay Now </button> 
+                 </article>
+             </div>
+ 
+             <div class="col-lg-3 mt-2 col-md-6 col-sm-12">
+                 <article class="bg-light p-5 shadow rounded">
+                     <h5 class="font-weight-bold">Vegan</h5>
+                     <img src="img/four.jpg" class="img-fluid" alt="">
+         <button type="button" class="btn btn-success mt-3" onclick="makePayment()"> Pay Now </button> 
+                 </article>
+             </div>
+ 
+         </div>
+     </div>
+ 
+
+    <div class="container mb-5"><hr></div>
+
+    <footer class="footer text-center bg-warning p-2">
+    <small>Cyprian Nwaerema | &copy copyright 2020</small>
+    </footer>
+    
+    <div class="container text-center">
+        <div class="fb-share-button" data-href="https://my-paystack-api-test.netlify.app/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmy-paystack-api-test.netlify.app%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+<script src="https://checkout.flutterwave.com/v3.js"></script>
+</body>
+</html>
+<script>
+    function makePayment() {
+      FlutterwaveCheckout({
+        public_key: "FLWPUBK_TEST-830ce30efe05b0e2b2a470735c86d163-X",
+        tx_ref: "hooli-tx-1920bbtyt",
+        amount: 1000,
+        currency: "NGN",
+        country: "NG",
+        payment_options: "card, mobilemoneyghana, ussd",
+        redirect_url: // specified redirect URL
+          "https://my-flutterwave-api-test.netlify.app/",
+        meta: {
+          consumer_id: 23,
+          consumer_mac: "92a3-912ba-1192a",
+        },
+        customer: {
+          email: "user@gmail.com",
+          phone_number: "08102909304",
+          name: "yemi desola",
+        },
+        callback: function (data) {
+          console.log(data);
+        },
+        onclose: function() {
+          // close modal
+        },
+        customizations: {
+          title: "My store",
+          description: "Payment for items in cart",
+          logo: "https://assets.piedpiper.com/logo.png",
+        },
+      });
+    }
+  </script>
