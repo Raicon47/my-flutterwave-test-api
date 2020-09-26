@@ -1,0 +1,16 @@
+So i've always been passionate about e-commerce which includes the implementation of payment 
+gateways and their APIs for easy and extensive use. After using paystack on my first payment
+gateway project i decided to try an alternatve and yea Flutterave is really good and i like
+it.
+
+The thing i like about what Flutterwave did was it's similarity to paystack so it is easy
+to use and other really easy to use extended features which i'd advise you try them out 
+yourself.
+
+1) I created a Flutterwave account.
+2) Used the inline pop up api script
+3) added images from www.unsplash.com
+
+Viola and that's it -> hosted it on netlify https://my-flutterwave-api-test.netlify.app/
+
+Have  nice day..and yeah, i'm having fun s a developer now 
